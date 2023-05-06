@@ -9,6 +9,7 @@ public class Constants {
     public static final Long CLIENT_ROLE_ID = 1L;
     public static final Long EMPLOYEE_ROLE_ID = 2L;
     public static final Long PROVIDER_ROLE_ID = 3L;
+    public static final Long OWNER_ROLE_ID = 4L;
     public static final int MAX_PAGE_SIZE = 2;
     public static final String RESPONSE_MESSAGE_KEY = "message";
     public static final String PERSON_CREATED_MESSAGE = "Person created successfully";
@@ -30,4 +31,12 @@ public class Constants {
     public static final String SWAGGER_LICENSE_NAME_MESSAGE = "Apache 2.0";
     public static final String SWAGGER_LICENSE_URL_MESSAGE = "http://springdoc.org";
     public static final String SWAGGER_TERMS_OF_SERVICE_MESSAGE = "http://swagger.io/terms/";
+    public static final String INVALID_AGE_EXCEPTION = "The user must be of legal age to be registered";
+    public static final String INVALID_USER_DATA = "The user data is incorrect";
+    public static final String INVALID_USER_EMAIL = "The user email is in incorrect format";
+    public static final int PHONE_MAX_SIZE = 13;
+    public static final String INVALID_PHONE_MAX_SIZE = "The user phone must be maximun 13 characters";
+    public static final String INVALID_USER_PHONE = "The user phone is in incorrect format";
+    public static final String INVALID_USER_DOCUMENT_NUMBER = "The user document number must be just numbers";
+
 }

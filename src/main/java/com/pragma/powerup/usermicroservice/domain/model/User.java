@@ -1,7 +1,103 @@
 package com.pragma.powerup.usermicroservice.domain.model;
 
+import java.util.Date;
+
 public class User {
+
     private Long id;
+    private String name;
+    private String surname;
+    private String document_number;
+    private String phone;
+    private Date birthdate;
+    private String mail;
+    private String password;
+    private Long id_rol;
+
+    public User(Long id, String name, String surname, String document_number, String phone, Date birthdate, String mail, String password, Long id_rol) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.document_number = document_number;
+        this.phone = phone;
+        this.birthdate = birthdate;
+        this.mail = mail;
+        this.password = password;
+        this.id_rol = id_rol;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getDocument_number() {
+        return document_number;
+    }
+
+    public void setDocument_number(String document_number) {
+        this.document_number = document_number;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getId_rol() {
+        return id_rol;
+    }
+
+    public void setId_rol(Long id_rol) {
+        this.id_rol = id_rol;
+    }
+/*    private Long id;
     private Person person;
     private Role role;
 
@@ -33,5 +129,5 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
-    }
+    }*/
 }
