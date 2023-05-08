@@ -34,7 +34,21 @@ import java.util.Map;
 public class UserRestController {
     private final IUserHandler userHandler;
 
-    @Operation(summary = "Add a new user",
+    @Operation(summary = "Add a new owner",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Owner created",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
+                    @ApiResponse(responseCode = "409", description = "Owner already exists",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
+                    @ApiResponse(responseCode = "403", description = "Role not allowed for user creation",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
+    @PostMapping("")
+    public ResponseEntity<Map<String, String>> saveUser(@RequestBody UserRequestDto userRequestDto) {
+        userHandler.saveUser(userRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.USER_CREATED_MESSAGE));
+    }
+    /*@Operation(summary = "Add a new user",
             responses = {
                     @ApiResponse(responseCode = "201", description = "User created",
                             content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
@@ -99,5 +113,5 @@ public class UserRestController {
     @GetMapping("/client/{id}")
     public ResponseEntity<PersonResponseDto> getClient(@PathVariable Long id) {
         return ResponseEntity.ok(userHandler.getClient(id));
-    }
+    }*/
 }

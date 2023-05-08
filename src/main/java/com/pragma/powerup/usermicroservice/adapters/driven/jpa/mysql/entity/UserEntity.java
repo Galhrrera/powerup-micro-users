@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
@@ -19,13 +21,18 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "id_person")
-    private PersonEntity personEntity;
+    private  String name;
+    private String surname;
+    private String document_number;
+    private String phone;
+    private Date birth_date;
+    private String email;
+    private String password;
     @ManyToOne
     @JoinColumn(name = "id_role")
-    private RoleEntity roleEntity;
+    private Long id_rol;
 }

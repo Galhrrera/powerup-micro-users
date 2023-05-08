@@ -24,6 +24,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     IUserRepository userRepository;
 
     @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
+    }
+
+/*    @Override
     public UserDetails loadUserByUsername(String documentID) throws UsernameNotFoundException {
         PersonEntity usuario = personRepository.findByDniNumber(documentID).orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
         List<UserEntity> userEntity = userRepository.findAllByPersonEntityId(usuario.getId());
@@ -33,9 +38,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         List<RoleEntity> roles = new ArrayList<>();
 
         for (UserEntity user : userEntity) {
-            roles.add(user.getRoleEntity());
+            roles.add(user.getId_rol());
         }
 
         return PrincipalUser.build(usuario, roles);
-    }
+    }*/
 }

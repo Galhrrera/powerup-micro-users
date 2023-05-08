@@ -34,22 +34,22 @@ public class UserMysqlAdapter implements IUserPersistencePort {
     private final IUserEntityMapper userEntityMapper;
     @Override
     public void saveUser(User user) {
-        if (user.getRole().getId().equals(PROVIDER_ROLE_ID))
+        if (user.getId_rol().equals(PROVIDER_ROLE_ID))
         {
             throw new RoleNotAllowedForCreationException();
         }
-        if (userRepository.findByPersonEntityIdAndRoleEntityId(user.getPerson().getId(), user.getRole().getId()).isPresent()) {
+        if (userRepository.findByPersonEntityIdAndRoleEntityId(user.getId(), user.getId_rol()).isPresent()) {
             throw new UserAlreadyExistsException();
         }
-        personRepository.findById(user.getPerson().getId()).orElseThrow(PersonNotFoundException::new);
-        roleRepository.findById(user.getRole().getId()).orElseThrow(RoleNotFoundException::new);
+        personRepository.findById(user.getId()).orElseThrow(PersonNotFoundException::new);
+        roleRepository.findById(user.getId_rol()).orElseThrow(RoleNotFoundException::new);
         userRepository.save(userEntityMapper.toEntity(user));
     }
 
     @Override
     public void deleteUser(User user) {
-        if (userRepository.findByPersonEntityIdAndRoleEntityId(user.getPerson().getId(), user.getRole().getId()).isPresent()) {
-            userRepository.deleteByPersonEntityIdAndRoleEntityId(user.getPerson().getId(), user.getRole().getId());
+        if (userRepository.findByPersonEntityIdAndRoleEntityId(user.getId(), user.getId_rol()).isPresent()) {
+            userRepository.deleteByPersonEntityIdAndRoleEntityId(user.getId(), user.getId_rol());
         }
         else {
             throw new UserNotFoundException();
