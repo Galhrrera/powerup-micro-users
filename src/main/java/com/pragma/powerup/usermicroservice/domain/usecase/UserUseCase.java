@@ -22,6 +22,13 @@ public class UserUseCase implements IUserServicePort {
     }
 
     @Override
+    public void saveUser(User user) {
+        if (validUser(user))
+            userPersistencePort.saveOwner(user);
+        else throw new InvalidUserData(INVALID_USER_DATA);
+    }
+
+    @Override
     public void saveOwner(User user) {
         if (validUser(user))
             userPersistencePort.saveOwner(user);

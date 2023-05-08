@@ -16,8 +16,7 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-   /* @Autowired
-    IPersonRepository personRepository;*/
+
     @Autowired
     IUserRepository userRepository;
 

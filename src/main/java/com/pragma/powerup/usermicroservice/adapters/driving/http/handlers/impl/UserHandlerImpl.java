@@ -45,8 +45,13 @@ public class UserHandlerImpl implements IUserHandler {
         return personResponseMapper.userToPersonResponse(userServicePort.getClient(id));
     }*/
 
-    @Override
+/*    @Override
     public void saveOwner(UserRequestDto userRequestDto) {
         userServicePort.saveOwner(userRequestMapper.toUser(userRequestDto));
+    }*/
+
+    @Override
+    public void saveUser(UserRequestDto userRequestDto) {
+        userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));
     }
 }
